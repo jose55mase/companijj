@@ -14,11 +14,13 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { MaterialModule } from './angularMaterial/angular-material.module';
 import { ComponentModule } from './component/component.module';
+import { LoadComponent } from './load/load.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    LoadComponent
   ],
   imports: [
     ComponentModule,

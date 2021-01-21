@@ -9,6 +9,8 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { ProductsComponent } from 'app/component/products/products.component';
+import { Page404Component } from 'app/component/page404/page404.component';
+import { BuyComponent } from 'app/component/buy/buy.component';
 
 
 
@@ -22,5 +24,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 
-    { path: 'products',        component: ProductsComponent},
+    { path: 'products',       component: ProductsComponent},
+    { path: 'maintenance',    component:Page404Component},
+    { path: 'buy',            component:BuyComponent },
 ];

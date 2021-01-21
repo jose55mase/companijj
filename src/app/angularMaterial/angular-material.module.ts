@@ -10,6 +10,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
     imports: [
@@ -23,6 +25,7 @@ import { MatTabsModule } from '@angular/material/tabs';
       ,MatPaginatorModule
       ,MatButtonToggleModule
       ,MatTabsModule
+      ,MatProgressBarModule
 
     ],
     exports: [
@@ -36,6 +39,7 @@ import { MatTabsModule } from '@angular/material/tabs';
       ,MatPaginatorModule
       ,MatButtonToggleModule
       ,MatTabsModule
+      ,MatProgressBarModule
     ]
 })
 export class MaterialModule{}

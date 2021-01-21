@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-product-list',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  @Input() productss:string ="Prouctos";
+  public load:boolean = true;
+
+
+
+  constructor() {
+    setTimeout(()=>{
+      this.load = false
+    },5000)
+  }
 
   ngOnInit(): void {
   }

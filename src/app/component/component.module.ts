@@ -5,9 +5,11 @@ import { RouterModule } from '@angular/router';
 import { ComponentRouting } from './component.routing';
 import { ProductListComponent } from './products/product-list/product-list.component'
 import { MaterialModule } from 'app/angularMaterial/angular-material.module';
+import { Page404Component } from './page404/page404.component';
+import { BuyComponent } from './buy/buy.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductListComponent],
+  declarations: [ProductsComponent, ProductListComponent, Page404Component, BuyComponent],
   imports: [
     RouterModule.forChild(ComponentRouting)
     ,CommonModule
