@@ -16,25 +16,20 @@ export class ProductListComponent implements OnInit {
   public load:boolean = true;
   items:any;
   itemEditar:any={name:''};
-  constructor(firestore: AngularFirestore, private productService: ProductService,
-    private ROUTER : Router) {
+  constructor(firestore: AngularFirestore, private productService: ProductService,private ROUTER : Router,) {
     //this.items = firestore.collection('product').valueChanges();
     this.getCallectionProduct();
-
-
   }
 
   ngOnInit(): void {
-
-    //console.log("productss------> ", this.productss);
   }
-
 
 
   public getCallectionProduct(){
     this.productService.retornaItems().subscribe(
-      (items:any)=>{
-        this.items = items.filter((data)=>{return data.category == this.productss })
+      (items)=>{
+        this.items=items
+        console.log(this.items)
       },
       (error)=>{
         //this.items=items
@@ -44,6 +39,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public findByIdAndBuy(item){
+
     console.log(item.id)
     let dataNavigate : NavigationExtras = {
       queryParams:{

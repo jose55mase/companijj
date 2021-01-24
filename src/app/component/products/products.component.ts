@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { StoreService } from './../../service/store.service';
 
 @Component({
   selector: 'app-products',
@@ -9,15 +11,21 @@ export class ProductsComponent implements OnInit {
 
   //Productos
   products = {
-    electronica: "Electronica",
-    servicios: "Servicios",
-    ropa: "Ropa"
+    electronica: "electronica",
+    servicios: "servicios",
+    ropa: "ropa"
   }
 
+  constructor(private storeService: StoreService) { }
 
-  constructor() { }
+  public selectProductMenu(data:string){
+    console.log("data");
+    //this.storeService.selectProductMenu(data)
+  }
+
 
   ngOnInit(): void {
   }
+
 
 }

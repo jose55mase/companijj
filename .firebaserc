@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "company-3dcba"
+  },
+  "targets": {
+    "company-3dcba": {
+      "hosting": {
+        "pd-free-angularcli": [
+          "company-3dcba"
+        ]
+      }
+    }
   }
 }

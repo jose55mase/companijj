@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Routes, Router, RouterModule,NavigationExtras } from '@angular/router'; // CLI imports router
 
 @Component({
   selector: 'app-buy',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyComponent implements OnInit {
 
-  constructor() { }
+  public paramURL = {}
+
+  constructor(private activatedRoute : ActivatedRoute,) {
+    this.activatedRoute.queryParams.subscribe((param)=>{
+      this.paramURL = param;
+      console.log("(Joxe param)--------> ",this.paramURL);
+    })
+  }
 
   ngOnInit(): void {
   }

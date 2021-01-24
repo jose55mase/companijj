@@ -16,6 +16,12 @@ import { MaterialModule } from './angularMaterial/angular-material.module';
 import { ComponentModule } from './component/component.module';
 import { LoadComponent } from './load/load.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +29,9 @@ import { LoadComponent } from './load/load.component';
     LoadComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule,
     ComponentModule,
     MaterialModule,
     BrowserAnimationsModule,
