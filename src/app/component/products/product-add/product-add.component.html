@@ -1,0 +1,80 @@
+<div *ngIf="alertActive" class="alert alert-success"   role="alert">
+  Producto guardado con exito...
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card " style="width: 15rem;">
+        <img src="https://lh3.googleusercontent.com/proxy/38GVA1hykj3u8jvqzKnRHRgxeJ89oJRSFlZtAhHTUJ2ENs4BO_CpjVYaI14RiJ_5gEDmJ2Z-bV8SgX5nHZbHpKet1OPgCsjiqyXGqzjYckl-GydP59PkjygogEWhNS8B8KvW" class="card-img-top" alt="...">
+        <div class="card-body">
+          <form class="row" [formGroup]="formControlProduct">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                <input type="email" class="form-control" formControlName="inputProductName" placeholder="Nombre">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Precio</label>
+                <input type="email" class="form-control" formControlName="inputProductPrice" id="exampleFormControlInput1" placeholder="name@example.com">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Imagen</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="inputProductImage" placeholder="name@example.com">
+              </div>
+              <label for="exampleFormControlInput1" class="form-label">Categoria</label>
+              <select class="form-select" formControlName="inputProductCategory" aria-label="Default select example">
+                <option selected></option>
+                <option value="Electronica">Electronica</option>
+                <option value="RC Hobbys">RC Hobbys</option>
+                <option value="Sevicios">Sevicios</option>
+              </select>
+            </div>
+
+
+            <div >
+              <label for="exampleFormControlTextarea2" class="form-label">Descripcion</label>
+              <textarea class="form-control" id="exampleFormControlTextarea2" formControlName="inputProductDescription" rows="12"></textarea>
+            </div>
+
+
+          </form>
+          <button class="btn btn-success btn-block" (click)="onProductSave()" name="button">Guardar</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="prodroductWindows"  class="col-sm-6">
+      <div class="card" style="width: 18rem;">
+        <img src={{json.image}} disabled class="card-img-top" alt="...">
+        <div class="card-body">
+          <form [formGroup]="formControlProduct">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+              <input type="email" class="form-control" disabled value={{json.name}} >
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Precio</label>
+              <input type="email" class="form-control" disabled value="{{json.price}}">
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+              <p>{{json.price}}</p>
+            </div>
+            <hr>
+
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Categoria</label>
+              <p>{{json.category}}</p>
+            </div>
+          </form>
+          <button class="btn btn-success btn-block" (click)="onProductEdit()" name="button">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

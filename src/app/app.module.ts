@@ -2,6 +2,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -29,12 +31,14 @@ import { environment } from '../environments/environment';
     LoadComponent
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     ComponentModule,
     MaterialModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),

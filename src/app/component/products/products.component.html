@@ -1,8 +1,7 @@
 
-<mat-tab-group (selectedIndexChange)="onTabChange($event)">
-  <mat-tab label="Ropa"> <app-product-list [productss]="products.ropa"></app-product-list> </mat-tab>
+<mat-tab-group>
+  <mat-tab label="RC Hobbys"> <app-product-list [productss]="products.hobby_rc"></app-product-list> </mat-tab>
   <mat-tab label="Electronica" > <app-product-list [productss]="products.electronica"></app-product-list> </mat-tab>
-  <mat-tab label="Servicios"> <app-product-list [productss]="products.servicios"></app-product-list> </mat-tab>
-  <mat-tab label="Peluches">  </mat-tab>
+
 
 </mat-tab-group>

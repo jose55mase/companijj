@@ -32,8 +32,10 @@ export class ProductListComponent implements OnInit {
 
 
   public getCallectionProduct(){
+
     this.productService.retornaItems().subscribe(
       (items:any)=>{
+        //console.log("--------------> ",this.productss)
         this.items = items.filter((data)=>{return data.category == this.productss })
       },
       (error)=>{

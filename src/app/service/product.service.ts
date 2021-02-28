@@ -34,4 +34,8 @@ export class ProductService {
     console.log(this.itemDoc.get);
   }
 
+  addNewItem(data:any){
+    this.itemsCollection.add(data)
+  }
+
 }

@@ -4,6 +4,7 @@
   },
   "hosting": [
     {
+      "site":"company-3dcba",
       "public": "dist",
       "ignore": [
         "firebase.json",

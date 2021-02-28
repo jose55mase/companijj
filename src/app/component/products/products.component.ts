@@ -11,9 +11,9 @@ export class ProductsComponent implements OnInit {
 
   //Productos
   products = {
-    electronica: "electronica",
-    servicios: "servicios",
-    ropa: "ropa"
+    electronica: "Electronica",
+    hobby_rc: "RC Hobbys",
+    //ropa: "ropa"
   }
 
   constructor(private storeService: StoreService) { }

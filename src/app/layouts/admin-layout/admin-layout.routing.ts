@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { ProductsComponent } from 'app/component/products/products.component';
 import { Page404Component } from 'app/component/page404/page404.component';
 import { BuyComponent } from 'app/component/buy/buy.component';
+import { ProductAddComponent } from 'app/component/products/product-add/product-add.component';
 
 
 
@@ -27,4 +28,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'products',       component: ProductsComponent},
     { path: 'maintenance',    component:Page404Component},
     { path: 'buy',            component:BuyComponent },
+    { path: 'products/add',   component:ProductAddComponent }
 ];

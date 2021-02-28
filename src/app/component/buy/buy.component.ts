@@ -8,7 +8,7 @@ import {ActivatedRoute, Routes, Router, RouterModule,NavigationExtras } from '@a
 })
 export class BuyComponent implements OnInit {
 
-  public paramURL = {}
+  public paramURL:any
 
   constructor(private activatedRoute : ActivatedRoute,) {
     this.activatedRoute.queryParams.subscribe((param)=>{
