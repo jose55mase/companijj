@@ -7,9 +7,10 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { MaterialModule } from 'app/angularMaterial/angular-material.module';
 import { Page404Component } from './page404/page404.component';
 import { BuyComponent } from './buy/buy.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [ProductsComponent, ProductListComponent, Page404Component, BuyComponent],
+  declarations: [ProductsComponent, ProductListComponent, Page404Component, BuyComponent, LoginComponent],
   imports: [
     RouterModule.forChild(ComponentRouting)
     ,CommonModule
