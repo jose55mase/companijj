@@ -10,6 +10,7 @@ import { BuyComponent } from './buy/buy.component';
 import { ProductAddComponent } from './products/product-add/product-add.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [ProductsComponent, ProductListComponent, Page404Component, BuyComponent, ProductAddComponent],
   imports: [
