@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NgModule }        from '@angular/core';
+import { CommonModule }    from '@angular/common';
+import { RouterModule }    from '@angular/router';
+import { NgbModule }       from '@ng-bootstrap/ng-bootstrap';
+
 import { NavbarComponent } from './navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     imports: [ RouterModule, CommonModule, NgbModule ],
@@ -10,4 +11,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     exports: [ NavbarComponent ]
 })
 
-export class NavbarModule {}
+export class NavbarModule {
+
+  constructor(){ }
+
+
+}

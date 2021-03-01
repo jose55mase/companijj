@@ -3,6 +3,9 @@ import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
 
+import { LoginService }    from './../../service/login_service/login.service'
+
+
 @Component({
     moduleId: module.id,
     selector: 'navbar-cmp',
@@ -19,10 +22,17 @@ export class NavbarComponent implements OnInit{
     public isCollapsed = true;
     @ViewChild("navbar-cmp", {static: false}) button;
 
-    constructor(location:Location, private renderer : Renderer2, private element : ElementRef, private router: Router) {
+    constructor(location:Location, private renderer : Renderer2, private element : ElementRef, private router: Router,
+      private loginService$ : LoginService
+    ) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
+    }
+
+    public onClickShowLoginView(){
+      this.loginService$.loginStateView.emit(true);
+
     }
 
     ngOnInit(){

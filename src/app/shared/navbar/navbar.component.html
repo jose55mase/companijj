@@ -46,8 +46,8 @@
             </p>
           </a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
-            <a ngbDropdownItem routerLink="/maintenance"><i class="nc-icon nc-badge"></i> Iniciar sesion</a>
-            <a ngbDropdownItem routerLink="/maintenance"><i class="nc-icon nc-lock-circle-open"></i> Registrarse</a>            
+            <a ngbDropdownItem (click)="onClickShowLoginView()" ><i class="nc-icon nc-badge"></i> Iniciar sesion</a>
+            <a ngbDropdownItem routerLink="/maintenance"><i class="nc-icon nc-lock-circle-open"></i> Registrarse</a>
           </div>
         </li>
         <li class="nav-item">
