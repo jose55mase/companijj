@@ -26,6 +26,7 @@ export class ProductAddComponent implements OnInit {
   });
 
   onProductSave(){
+    /*
     var json = {}
     var idesData = Date.now()
     this.alertActive = true
@@ -44,7 +45,7 @@ export class ProductAddComponent implements OnInit {
     }
 
     var data = this.productService.addNewItem(this.json)
-    
+    */
   }
 
   onProductEdit(){

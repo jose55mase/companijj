@@ -20,7 +20,7 @@ export const ROUTES: RouteInfo[] = [
       class: ''
     },
     { path: '/maps',          title: 'Mapa',              icon:'nc-pin-3',      class: '' },
-  //  { path: '/products/add',  title: 'Productos',         icon:'nc-pin-3',      class: '' } 
+    { path: '/products/add',  title: 'Productos',         icon:'nc-pin-3',      class: '' } 
   /*
     { path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
     { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },

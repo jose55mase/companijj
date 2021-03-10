@@ -21,7 +21,7 @@
     "@angular/core": "10.1.5",
     "@angular/fire": "^6.1.4",
     "@angular/forms": "10.1.5",
-    "@angular/localize": "^10.1.5",
+    "@angular/localize": "^10.2.4",
     "@angular/material": "^10.2.7",
     "@angular/platform-browser": "10.1.5",
     "@angular/platform-browser-dynamic": "10.1.5",
@@ -36,16 +36,17 @@
     "chartist": "0.11.4",
     "core-js": "3.6.5",
     "express": "4.17.1",
+    "firebase": "^8.2.10",
     "jquery": "3.5.1",
     "moment": "2.29.1",
     "ngx-toastr": "13.1.0",
     "rxjs": "6.6.3",
-    "sweetalert2": "^10.12.5",
+    "sweetalert2": "^10.15.5",
     "tslib": "2.0.2",
-    "zone.js": "0.11.1",
-    "firebase": "^7.0 || ^8.0"
+    "zone.js": "0.11.1"
   },
   "devDependencies": {
+    "@angular-devkit/architect": "^0.1102.3",
     "@angular-devkit/build-angular": "0.1001.5",
     "@angular/cli": "10.1.5",
     "@angular/compiler-cli": "10.1.5",
@@ -56,6 +57,10 @@
     "@types/node": "14.11.5",
     "angular-cli-ghpages": "^1.0.0-rc.1",
     "codelyzer": "6.0.1",
+    "firebase-tools": "^8.0.0",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^6.2.2",
+    "inquirer-autocomplete-prompt": "^1.0.1",
     "jasmine-core": "3.6.0",
     "jasmine-spec-reporter": "6.0.0",
     "karma": "5.2.3",
@@ -64,15 +69,10 @@
     "karma-coverage-istanbul-reporter": "3.0.3",
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.5.4",
+    "open": "^7.4.2",
     "protractor": "7.0.0",
     "ts-node": "9.0.0",
     "tslint": "6.1.3",
-    "typescript": "4.0.3",
-    "@angular-devkit/architect": ">= 0.900 < 0.1200",
-    "firebase-tools": "^8.0.0",
-    "fuzzy": "^0.1.3",
-    "inquirer": "^6.2.2",
-    "inquirer-autocomplete-prompt": "^1.0.1",
-    "open": "^7.0.3"
+    "typescript": "4.0.3"
   }
 }

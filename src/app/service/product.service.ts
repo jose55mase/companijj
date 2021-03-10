@@ -2,40 +2,32 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection,AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-export interface Item { name: string; image:string;category:string }
+import { map,catchError,retry } from 'rxjs/operators';
+import { interval, of, throwError } from 'rxjs';
+import { environment } from './../../environments/environment'
+import { HttpClient, HttpParams,HttpClientModule,HttpErrorResponse  } from '@angular/common/http';
+//import { Headers,RequestOptions } from "@angular/http";
+// interface
+import { Product,Responses } from './../component/models/models'
+
+
+
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class ProductService {
 
-  private itemsCollection: AngularFirestoreCollection<Item>;
-  private itemDoc:AngularFirestoreDocument<Item>;
-  items: Observable<Item[]>;
+  //private headers = new Headers({'Content_Type':'application/json'});
+  //private options = new RequestOptions({headers:this.headers})
+  URI: string;
 
-
-  constructor(private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection<Item>('product');
-    this.items = this.itemsCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as Item;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      }))
-    );
+  constructor(private http: HttpClient) {
+    this.URI = `${environment.urlProducto_JAVA}`
   }
 
-  retornaItems(){
-    return this.items;
-  }
-
-  findById(item){
-    this.itemDoc=this.afs.doc<Item>("product/"+item.id);
-    console.log(this.itemDoc.get);
-  }
-
-  addNewItem(data:any){
-    this.itemsCollection.add(data)
+  getAllProducts():Observable<Responses>{
+    return this.http.get<Responses>(`${this.URI}/v1/product/get`);
   }
 
 }

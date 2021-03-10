@@ -12,6 +12,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import {MatFormFieldModule} from '@angular/material/form-field'
       ,MatTabsModule
       ,MatProgressBarModule
       ,MatFormFieldModule
+      ,MatInputModule
+      ,MatSelectModule
 
     ],
     exports: [
@@ -43,6 +47,8 @@ import {MatFormFieldModule} from '@angular/material/form-field'
       ,MatTabsModule
       ,MatProgressBarModule
       ,MatFormFieldModule
+      ,MatInputModule
+      ,MatSelectModule
     ]
 })
 export class MaterialModule{}

@@ -23,6 +23,7 @@ import { LoadComponent }              from './load/load.component';
 import { AngularFireModule }          from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule }     from '@angular/fire/firestore';
+import { HttpClientModule }           from '@angular/common/http';
 
 import { environment }                from '../environments/environment';
 
@@ -35,20 +36,13 @@ import { environment }                from '../environments/environment';
   imports: [
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAnalyticsModule,
-    AngularFirestoreModule,
-    ComponentModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
+    AngularFireAnalyticsModule, AngularFirestoreModule, ComponentModule,
+    MaterialModule, BrowserAnimationsModule, ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),
-    SidebarModule,
-    NavbarModule,
-    ToastrModule.forRoot(),
-    FooterModule,
-    FixedPluginModule,
+    SidebarModule, NavbarModule, ToastrModule.forRoot(), FooterModule,
+    FixedPluginModule,HttpClientModule
 
   ],
   providers: [],
