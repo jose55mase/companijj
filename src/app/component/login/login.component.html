@@ -1,28 +1,27 @@
 
+  <div class="example-form">
 
-<form action="" method="post">
-  <div class="imgcontainer">
-    <img src="https://i.pinimg.com/originals/64/3e/fe/643efe51394d635cbf544a25088ee269.png" alt="Avatar" class="avatar">
-  </div>
+    <div class="imgcontainer">
+      <img src="https://www.seattleu.edu/susi/Anonymous-Avatar.png" alt="Avatar" class="avatar">
+    </div>
 
-  <div class="container" class="tex center">
-    <label for="uname"><b>Username</b></label>
-    <br>
-    <input type="text" [(ngModel)]="fakeLogin.name"  placeholder="Enter Username" name="uname" required>
-    <br>
-    <label for="psw"><b>Password</b></label>
-    <br>
-    <input type="password" [(ngModel)]="fakeLogin.password" placeholder="Enter Password" name="psw" required>
-    <br>
-    <button (click)="onLogin()">Login</button>
-    <br>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Usuario</mat-label>
+      <input matInput [(ngModel)]="fakeLogin.name">
+    </mat-form-field>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" (click)="onCancelCloseView()" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+    <mat-form-field class="example-full-width">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [(ngModel)]="fakeLogin.password">
+    </mat-form-field>
+    <div class="">
+      <button mat-raised-button class="btn-onIngresar" (click)="onLogin()">Ingresar</button>
   </div>
-</form>
+    <hr>
+    <section>
+        <div class="">
+          <button mat-raised-button color="warn" class="btn-onCancel" (click)="onCancelCloseView()" >Cancelar</button>
+          <span class="psw">Restablecer <a href="#">Contraseña?</a></span>
+      </div>
+    </section>
+  </div>

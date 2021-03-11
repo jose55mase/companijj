@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginService$.components.subscribe(
-      (responses) => {
+      (responses:any) => {
         this.modules = responses
       }
     )
