@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './../service/login_service/login.service'
 
 
 export interface RouteInfo {
@@ -20,10 +21,10 @@ export const ROUTES: RouteInfo[] = [
       class: ''
     },
     { path: '/maps',          title: 'Mapa',              icon:'nc-pin-3',      class: '' },
-    { path: '/products/add',  title: 'Productos',         icon:'nc-pin-3',      class: '' } 
-  /*
-    { path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
-    { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
+//    { path: '/products/add',  title: 'Productos',         icon:'nc-pin-3',      class: '' },
+
+//    { path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
+  /*  { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
     { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
     { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '' },
     { path: '/typography',    title: 'Typography',        icon:'nc-caps-small', class: '' },
@@ -39,7 +40,19 @@ export const ROUTES: RouteInfo[] = [
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
+    constructor(private loginService$:LoginService){
+      this.loadComponets();
+    }
     ngOnInit() {
-        this.menuItems = ROUTES.filter(menuItem => menuItem);
+        //this.menuItems = ROUTES.filter(menuItem => menuItem);
+        this.loginService$.components.emit(ROUTES)
+    }
+
+    loadComponets(){
+      this.loginService$.components.subscribe(
+        (responses) => {
+          this.menuItems = responses.filter(menuItem => menuItem);
+        }
+      )
     }
 }

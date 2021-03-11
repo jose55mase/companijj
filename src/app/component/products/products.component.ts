@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { StoreService } from './../../service/store.service';
+import { Routes, Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +17,7 @@ export class ProductsComponent implements OnInit {
     //ropa: "ropa"
   }
 
-  constructor(private storeService: StoreService) { }
+  constructor(private storeService: StoreService,private ROUTER : Router) { }
 
   public selectProductMenu(data:string){
     console.log("data");

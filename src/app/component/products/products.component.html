@@ -1,4 +1,14 @@
-
+<div class="">
+  <button
+    routerLink="/products/add"
+    mat-fab
+    aria-label=""
+    color="primary"
+    matTooltip="Crear nuevo producto"
+    >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
 <mat-tab-group>
   <mat-tab label="RC Hobbys"> <app-product-list [productss]="products.hobby_rc"></app-product-list> </mat-tab>
   <mat-tab label="Electronica" > <app-product-list [productss]="products.electronica"></app-product-list> </mat-tab>

@@ -1,6 +1,17 @@
 <div *ngIf="alertActive" class="alert alert-success"   role="alert">
   Producto guardado con exito...
 </div>
+<div class="">
+  <button
+    routerLink="/products"
+    mat-fab
+    aria-label=""
+    color="primary"
+    matTooltip="Regresar"
+    >
+    <mat-icon>transfer_within_a_station</mat-icon>
+  </button>
+</div>
 <div class="rows">
   <form class="example-form container" [formGroup]="formControlProduct">
     <img src="assets/company/default_Image.png" class="card-img-top" alt="...">

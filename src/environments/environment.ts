@@ -5,7 +5,7 @@
 
 export const environment = {
   production: true,
-  urlProducto_JAVA : "http://localhost:8089",
+  urlProducto_JAVA : "http://c88d3f5c677d.ngrok.io", //"http://localhost:8089",
   firebase : {
     apiKey: "AIzaSyD3NYT_tyujv0KpYMqUR-7VNGHDBv1ZAfM",
     authDomain: "company-3dcba.firebaseapp.com",
