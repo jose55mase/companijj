@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from './../../service/login_service/login.service'
+import { Component, OnInit }    from '@angular/core';
+import { MatSnackBar}           from '@angular/material/snack-bar';
+import { MatBottomSheetRef}     from '@angular/material/bottom-sheet';
 
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { LoginService }         from './../../service/login_service/login.service';
+import { ROUTESNABAR }          from '././../../startApp';
 
 @Component({
   selector: 'app-login',
@@ -17,28 +19,26 @@ export class LoginComponent implements OnInit {
     password:""
   }
 
-  constructor(private loginService$:LoginService,private _snackBar: MatSnackBar) { }
+  constructor(private loginService$:LoginService,private _snackBar: MatSnackBar,
+    private _bottomSheetRef: MatBottomSheetRef<LoginComponent>) { }
 
   ngOnInit(): void {
-    this.loginService$.components.subscribe(
-      (responses:any) => {
-        this.modules = responses
-      }
-    )
+    this.modules = ROUTESNABAR
+    
   }
 
   onCancelCloseView(){
-    this.loginService$.loginStateView.emit(false)
+    //this.loginService$.loginStateView.emit(false)
+    this._bottomSheetRef.dismiss();
   }
 
   onLogin(){
-
-
     if(this.fakeLogin.name == "1" && this.fakeLogin.password == "1"){
         this._snackBar.open("Inicio sesion correctamente", "Exito", {
         duration: 10000,
       });
-      var userRol =[
+      this._bottomSheetRef.dismiss();
+      var userRol =
         {
           permissions:["C","R","U","D"],
           modulo:"Productos",
@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
           icon:'nc-pin-3',
           class: ''
         }
-      ]
       this.modules.push(userRol)
       this.loginService$.components.emit(this.modules)
     }

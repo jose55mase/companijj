@@ -38,9 +38,11 @@ export class ProductListComponent implements OnInit {
     this.productService.getAllProducts()
       .subscribe(
         (response:Responses) => {
-          this.items = response.data}
+          this.items = response.data.filter((data)=>{return data.category == this.productss})
+        }
       )
   }
+
   public findByIdAndBuy(item:Product){
     this.productMoment = item;
     const productMoment = this.productMoment;

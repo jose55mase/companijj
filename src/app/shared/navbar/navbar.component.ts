@@ -1,10 +1,12 @@
-import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
-import { ROUTES } from '../../sidebar/sidebar.component';
-import { Router } from '@angular/router';
-import { Location} from '@angular/common';
+import { Component, OnInit,  Renderer2,
+  ViewChild, ElementRef }     from '@angular/core';
+import { Router }             from '@angular/router';
+import { Location}            from '@angular/common';
+import { MatBottomSheet }     from '@angular/material/bottom-sheet';
 
-import { LoginService }    from './../../service/login_service/login.service'
-
+import { LoginService }       from './../../service/login_service/login.service';
+import { LoginComponent }     from './../../component/login/login.component';
+import { ROUTESNABAR }        from '../../startApp';
 
 @Component({
     moduleId: module.id,
@@ -22,8 +24,8 @@ export class NavbarComponent implements OnInit{
     public isCollapsed = true;
     @ViewChild("navbar-cmp", {static: false}) button;
 
-    constructor(location:Location, private renderer : Renderer2, private element : ElementRef, private router: Router,
-      private loginService$ : LoginService
+    constructor(location:Location, private renderer : Renderer2, private element : ElementRef,
+      private router: Router, private _bottomSheet: MatBottomSheet,private loginService$ : LoginService
     ) {
         this.location = location;
         this.nativeElement = element.nativeElement;
@@ -31,12 +33,12 @@ export class NavbarComponent implements OnInit{
     }
 
     public onClickShowLoginView(){
-      this.loginService$.loginStateView.emit(true);
-
+      //this.loginService$.loginStateView.emit(true);
+      this._bottomSheet.open(LoginComponent)
     }
 
     ngOnInit(){
-        this.listTitles = ROUTES.filter(listTitle => listTitle);
+        this.listTitles = ROUTESNABAR.filter(listTitle => listTitle);
         var navbar : HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
         this.router.events.subscribe((event) => {
