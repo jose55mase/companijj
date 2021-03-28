@@ -4,6 +4,7 @@ import { MatBottomSheetRef}     from '@angular/material/bottom-sheet';
 
 import { LoginService }         from './../../service/login_service/login.service';
 import { ROUTESNABAR }          from '././../../startApp';
+import { User }                 from 'app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { ROUTESNABAR }          from '././../../startApp';
 export class LoginComponent implements OnInit {
 
   private modules = [];
+  private user = new User();
 
   fakeLogin = {
     name:"",
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.modules = ROUTESNABAR
-    
+
   }
 
   onCancelCloseView(){
@@ -33,22 +35,48 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(){
-    if(this.fakeLogin.name == "1" && this.fakeLogin.password == "1"){
-        this._snackBar.open("Inicio sesion correctamente", "Exito", {
+    if((this.fakeLogin.name == "1" && this.fakeLogin.password == "1") || (this.fakeLogin.name == "2" && this.fakeLogin.password == "2")){
+      this._snackBar.open("Inicio sesion correctamente", "Exito", {
         duration: 10000,
       });
-      this._bottomSheetRef.dismiss();
-      var userRol =
-        {
-          permissions:["C","R","U","D"],
-          modulo:"Productos",
-          path: '/products/add',
-          title: 'Productos crear',
-          icon:'nc-pin-3',
-          class: ''
-        }
-      this.modules.push(userRol)
-      this.loginService$.components.emit(this.modules)
+      if(this.fakeLogin.name == "1"){
+        this.user.email="jose@gmail.com"
+        this.user.userName="Jose Luise".toUpperCase();
+        localStorage.setItem("user",JSON.stringify(this.user))
+        this._bottomSheetRef.dismiss();
+        var userRol =
+          {
+            permissions:["C","R","U","D"],
+            modulo:"Productos",
+            path: '/products/add',
+            title: 'Productos crear',
+            icon:'nc-pin-3',
+            class: ''
+          }
+        this.modules.push(userRol)
+        this.loginService$.components.emit(this.modules)
+      }else{
+        this.user.email="danielg7@gmail.com"
+        this.user.userName="daniel angel G7".toUpperCase();
+        localStorage.setItem("user",JSON.stringify(this.user))
+        this._bottomSheetRef.dismiss();
+        var userRol =
+          {
+            permissions:["C","R","U","D"],
+            modulo:"Productos",
+            path: '/products/add',
+            title: 'Productos crear',
+            icon:'nc-pin-3',
+            class: ''
+          }
+        this.modules.push(userRol)
+        this.loginService$.components.emit(this.modules)
+      }
+
+    }else{
+      this._snackBar.open("Usuario incorrecto", "No existe", {
+        duration: 10000,
+      });
     }
   }
 

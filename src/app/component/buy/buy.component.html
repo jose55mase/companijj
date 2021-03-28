@@ -9,7 +9,7 @@
     <mat-icon>transfer_within_a_station</mat-icon>
   </button>
 </div>
-<div class="row">
+<div class="row contenido">
   <div class="col-md-4">
     <div class="card card-user">
       <div class="image">
@@ -53,29 +53,29 @@
   <div class="col-md-8">
     <div class="card card-user">
       <div class="card-header">
-        <h5 class="card-title">Informacion de compra (Comprador)</h5>
+        <h3 class="card-title">Informacion de compra (Comprador)</h3>
       </div>
       <div class="card-body">
-        <form>
+
           <div class="row">
             <div class="col-md-5 pr-1">
               <div class="form-group">
                 <label>Nombre completo (Compredor)</label>
-                <input type="text" class="form-control"  placeholder="Miguel Antonio V">
+                <input type="text" required minlength="4" [(ngModel)]="user.name"   class="form-control" #name="ngModel"  placeholder="Miguel Antonio V">
               </div>
             </div>
 
             <div class="col-md-3 px-1">
               <div class="form-group">
                 <label>Telefono</label>
-                <input type="text" class="form-control" placeholder="345 633 17 59 " >
+                <input type="text" [(ngModel)]="user.phone"  class="form-control" placeholder="345 633 17 59 " >
               </div>
             </div>
 
             <div class="col-md-4 pl-1">
               <div class="form-group">
                 <label for="exampleInputEmail1">Correo electronico</label>
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" [(ngModel)]="user.email"  placeholder="Email">
               </div>
             </div>
 
@@ -90,7 +90,7 @@
             <div class="col-md-6 pl-1">
               <div class="form-group">
                 <label>Costo (colombia)</label>
-                <input type="text" class="form-control" disabled value={{paramURL.price}}>
+                <input type="text" class="form-control" disabled value={{paramURL.price|currency}}>
               </div>
             </div>
           </div>
@@ -106,31 +106,45 @@
             <div class="col-md-4 pr-1">
               <div class="form-group">
                 <label>Ciudad</label>
-                <input type="text" class="form-control" placeholder="City" value="Antioquia">
+                <input type="text" [(ngModel)]="user.city"  class="form-control" placeholder="City" value="Antioquia">
               </div>
             </div>
             <div class="col-md-4 px-1">
               <div class="form-group">
                 <label>Departamento</label>
-                <input type="text" class="form-control" placeholder="Country" value="Envigado">
+                <input type="text" class="form-control" [(ngModel)]="user.department" placeholder="Country" value="Envigado">
               </div>
             </div>
           </div>
-          <div class="row">
+
+          <div class="rows">
             <div class="col-md-12">
               <div class="form-group">
-                <label>Descripcion del producto</label>
-                <textarea class="form-control textarea" disabled value={{paramURL.description}}></textarea>
+                <label for="description">Descripcion del producto</label>
+                <div  #scrollChat [scrollTop]="scrollChat.scrollHeight" class="bg-light" style="overflow-y: scroll; height: 160px;">
+                  {{paramURL.description}}
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round">Procesar Compra</button>
+              <div *ngIf="name.invalid && (name.dirty || name.touched) ">
+                <button  type="submit" class="btn btn-primary btn-round" disabled (click)="loadPurchase(paramURL)">Procesar Compra</button>
+              </div>
+              <div *ngIf="!name.invalid && (name.dirty || name.touched)">
+                <button  type="submit" class="btn btn-primary btn-round" (click)="loadPurchase(paramURL)">Procesar Compra</button>
+              </div>
             </div>
           </div>
-        </form>
+
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="showLoadpurchase" >
+  <h3>CONSTRULLENDO COMPRA</h3>
+  <mat-progress-bar mode="determinate" value={{loadpurchase}}></mat-progress-bar>
+  {{loadpurchase}}
 </div>

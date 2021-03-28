@@ -1,0 +1,148 @@
+
+.contenerdor_card{
+
+  top:40px;
+  display: flex;
+  width: 340px;
+  height: 560px;
+  background-color:white;
+  border-radius: 3px;
+  z-index: 50;
+  padding: 0px, 0px, 0px, 0px;
+  -webkit-box-shadow: -0px 2px 5px #B2B2B2;
+  overflow: auto;
+}
+
+
+
+.tarjeta{
+  margin-left: 10px;
+  margin-top:0px;
+}
+
+.titulo{
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.avatar {
+  width: 130px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-top: 15px;
+  float: left;
+}
+
+
+.strong{
+  margin: 0;
+}
+
+.cad-position{
+  width: 350px;
+  font-size: 10px;
+  position: relative;
+  transition: width 2s;
+  //padding-left:0px;
+  cursor: pointer;
+}
+
+textarea {
+  border: none;
+  background-color: #EFEFEF;
+  margin-left: 10px;
+}
+
+textarea:focus, input:focus, input[type]:focus {
+    outline: 0 none;
+}
+
+.button{
+  width: auto;
+  font-size: 6px;
+  background-color: inherit;
+  padding: 5px 5px;
+  display: block;
+  background-color: #E09A40;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+}
+
+.button_send{
+  margin-left: 180px - 15px;
+  width: auto;
+  font-size: 11px;
+  background-color: inherit;
+  padding: 0px 20px;
+  display: block;
+  background-color: #ff4081;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+}
+
+.button_cancel{
+  position: absolute;
+  margin-left: 80px - 15px;
+  width: auto;
+  font-size: 11px;
+  background-color: inherit;
+  padding: 0px 20px;
+  display: block;
+  background-color: #ff4081;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+}
+
+.card_mensaje:hover {
+  -webkit-box-shadow: 1px 1px 1px #B2B2B2;
+  background-color: #F6F6F6;
+}
+.card_mensaje{
+  margin-top: 10px;
+  position: relative;
+  font-size: 12px;
+  -webkit-box-shadow: -0px 2px 5px #B2B2B2;
+  height: auto;
+  top: 15px;
+  border-radius: 3px;
+  width: 190px;
+  padding-bottom: 10px;
+}
+.card_mensaje strong{
+  position: absolute;
+  right: 7px;
+  color: white;
+  background-color: #ff4081;
+  border-radius: 100%;
+  width: 20px;
+  text-align: center;
+  -webkit-box-shadow: -0px 4px 4px #B2B2B2;
+}
+.card_mensaje strong:hover{
+  -webkit-box-shadow: -0px 0px 0px #B2B2B2;
+  cursor: pointer;
+}
+
+.strongSalir{
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  color: white;
+  background-color: #ff4081;
+  border-radius: 100%;
+  width: 30px;
+  text-align: center;
+  -webkit-box-shadow: -0px 4px 4px #B2B2B2;
+}
+.strongSalir:hover{
+  -webkit-box-shadow: -0px 0px 0px #B2B2B2;
+  cursor: pointer;
+}

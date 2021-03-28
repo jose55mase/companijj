@@ -13,7 +13,7 @@ import { LoginComponent }                  from './login/login.component';
 
 
 @NgModule({
-  declarations: [ProductsComponent, ProductListComponent, Page404Component, BuyComponent, ProductAddComponent,LoginComponent,],
+  declarations: [ProductsComponent, ProductListComponent, Page404Component, BuyComponent, ProductAddComponent,LoginComponent],
   exports: [LoginComponent],
   imports: [
     RouterModule.forChild(ComponentRouting)

@@ -1,0 +1,83 @@
+.alertas{
+  width: 30px;
+  fill: white;
+  margin: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-top: 15px;
+
+//  align-items: flex-start;
+}
+
+
+.strong{
+  margin: 0;
+}
+
+.cad-position{
+  align-content: flex-end;
+  float:right;
+  width: 370px;
+  font-size: 10px;
+  margin-right: 0px ;
+  display: none;
+  transition: width 2s;
+}
+
+
+
+
+textarea {
+  border: 0;
+  background-color: #EFEFEF;
+}
+
+
+.button{
+  width: auto;
+  font-size: 9px;
+  background-color: inherit;
+  padding: 0px 5px;
+  display: block;
+  background-color: #ff4081;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+}
+
+.button_send{
+  margin-left: 165px - 15px;
+  width: auto;
+  font-size: 9px;
+  background-color: inherit;
+  padding: 0px 20px;
+  display: block;
+  background-color: #ff4081;
+  border-radius: 5px;
+  border: 0px;
+  color: white;
+}
+
+
+.operacione-patio:hover {
+   background: rgb(201,211,211);
+   background: linear-gradient(180deg, rgba(231,231,231,0.47942927170868344) 0%, rgba(246,246,246,1) 100%);
+   -webkit-box-shadow: 0px 0px 0px 0px rgba(153,153,153,1);
+   border-radius: 5px;
+   margin-top: 0px;
+}
+
+.operacione-patio {
+   background: rgb(231,231,231);
+   background: linear-gradient(180deg, rgba(231,231,231,0.47942927170868344) 0%, rgba(246,246,246,1) 100%);
+   -webkit-box-shadow: 2px 2px 2px 0px rgba(153,153,153,1);
+   border-radius: 5px;
+   margin-top: 0px;
+}

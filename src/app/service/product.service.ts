@@ -23,11 +23,17 @@ export class ProductService {
   URI: string;
 
   constructor(private http: HttpClient) {
-    this.URI = `${environment.urlProducto_JAVA}`
+    this.URI = environment.urlProducto_JAVA
   }
 
   getAllProducts():Observable<Responses>{
     return this.http.get<Responses>(`${this.URI}/v1/product/get`);
+  }
+
+  llamarNotificacion(cuerpo:string){
+    let param = new HttpParams();
+    param = param.append('subscriptionJson',cuerpo)
+    return this.http.post<any>(`http://localhost:8050/send?subscriptionJson${cuerpo}`,{});
   }
 
 }

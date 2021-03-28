@@ -17,6 +17,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
     imports: [
@@ -37,7 +40,9 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
       ,MatSnackBarModule
       ,MatTooltipModule
       ,MatBottomSheetModule
-
+      ,MatBadgeModule
+      ,MatExpansionModule
+      ,MatDialogModule
     ],
     exports: [
       MatSliderModule
@@ -57,6 +62,9 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
       ,MatSnackBarModule
       ,MatTooltipModule
       ,MatBottomSheetModule
+      ,MatBadgeModule
+      ,MatExpansionModule
+      ,MatDialogModule
     ]
 })
 export class MaterialModule{}

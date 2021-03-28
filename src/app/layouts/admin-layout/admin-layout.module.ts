@@ -13,16 +13,18 @@ import { IconsComponent }           from '../../pages/icons/icons.component';
 import { MapsComponent }            from '../../pages/maps/maps.component';
 import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
 import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
-
+import { MaterialModule }           from './../../angularMaterial/angular-material.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
+  //exports:[MatBadgeModule],
   imports: [
-    CommonModule,
-    RouterModule.forChild(AdminLayoutRoutes),
-    FormsModule,
-    NgbModule
+    CommonModule
+    ,RouterModule.forChild(AdminLayoutRoutes)
+    ,FormsModule
+    ,NgbModule
+    ,MaterialModule
   ],
   declarations: [
     DashboardComponent,
