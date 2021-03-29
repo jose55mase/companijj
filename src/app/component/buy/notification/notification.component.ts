@@ -31,7 +31,7 @@ export class NotificationComponent implements OnInit {
     console.log("[Inicimos Notificaciones]",)
     this.client = new Client();
     this.client.webSocketFactory = () => {
-      return new SockJS("http://localhost:8089/chat-websocket");
+      return new SockJS("https://sodaci.herokuapp.com/chat-websocket");
     }
 
     this.client.onConnect = (frame) => {
