@@ -29,6 +29,7 @@ import { environment }                  from '../environments/environment';
 import { ServiceWorkerModule }          from '@angular/service-worker';
 import { NotificationComponent }        from 'app/component/buy/notification/notification.component';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { OurserviceComponent }          from './pages/ourservice/ourservice.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
     AdminLayoutComponent,
     LoadComponent,
     NotificationComponent,
+    OurserviceComponent,
   ],
   imports: [
     FormsModule,
