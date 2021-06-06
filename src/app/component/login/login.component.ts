@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.modules = ROUTESNABAR
+    console.log("LOGING --->");
+    console.log(this.loginService$.statusLogin);
+    this.loginService$.statusLogin = true;
+    console.log(this.loginService$.statusLogin);
 
   }
 
@@ -35,6 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(){
+
     if((this.fakeLogin.name == "1" && this.fakeLogin.password == "1") || (this.fakeLogin.name == "2" && this.fakeLogin.password == "2")){
       this._snackBar.open("Inicio sesion correctamente", "Exito", {
         duration: 10000,
@@ -55,6 +60,7 @@ export class LoginComponent implements OnInit {
           }
         this.modules.push(userRol)
         this.loginService$.components.emit(this.modules)
+        this.loginService$.loginData.emit(this.modules)
       }else{
         this.user.email="danielg7@gmail.com"
         this.user.userName="daniel angel G7".toUpperCase();
@@ -70,7 +76,8 @@ export class LoginComponent implements OnInit {
             class: ''
           }
         this.modules.push(userRol)
-        this.loginService$.components.emit(this.modules)
+        this.loginService$.components.emit(this.modules);
+        this.loginService$.loginData.emit(this.modules);
       }
 
     }else{

@@ -31,6 +31,7 @@ import { NotificationComponent }        from 'app/component/buy/notification/not
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { OurserviceComponent }          from './pages/ourservice/ourservice.component';
 
+import {NgxFsModule}                    from 'ngx-fs';
 
 @NgModule({
 
@@ -45,7 +46,7 @@ import { OurserviceComponent }          from './pages/ourservice/ourservice.comp
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule, AngularFirestoreModule, ComponentModule,
-    MaterialModule, BrowserAnimationsModule, ReactiveFormsModule,
+    MaterialModule, BrowserAnimationsModule, ReactiveFormsModule, NgxFsModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { LoginService } from 'app/service/login_service/login.service';
 import { StoreService } from './../../service/store.service';
 import { Routes, Router, NavigationExtras } from '@angular/router';
 
@@ -10,6 +11,7 @@ import { Routes, Router, NavigationExtras } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
+  showCreateProduct = false;
   //Productos
   products = {
     electronica: "Electronica",
@@ -17,7 +19,10 @@ export class ProductsComponent implements OnInit {
     //ropa: "ropa"
   }
 
-  constructor(private storeService: StoreService,private ROUTER : Router) { }
+  constructor(private storeService: StoreService,private ROUTER : Router
+    ,private loginService$:LoginService) {
+    this.loadLogin();
+  }
 
   public selectProductMenu(data:string){
     console.log("data");
@@ -25,7 +30,13 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
+  ngOnInit(){
+  }
+
+  loadLogin(){
+    if(localStorage.getItem('user') != null){
+      this.showCreateProduct = true
+    }
   }
 
 

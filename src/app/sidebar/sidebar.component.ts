@@ -46,11 +46,13 @@ export class SidebarComponent implements OnInit {
       this.loadComponets();
     }
     ngOnInit() {
+
         //this.menuItems = ROUTES.filter(menuItem => menuItem);
         this.loginService$.components.emit(ROUTESNABAR)
         this.loginService$.components.subscribe(
           (responses:any) => {
             this.menuItems = responses
+
           }
         )
     }

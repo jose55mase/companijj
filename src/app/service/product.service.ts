@@ -30,6 +30,12 @@ export class ProductService {
     return this.http.get<Responses>(`${this.URI}/v1/product/get`);
   }
 
+  addNewProducts(json:any){
+    console.log(`ENVIANDO INFORMACION`);
+    console.log(json);
+    return this.http.post<any>(`${this.URI}/v1/product/save`,json);
+  }
+
   llamarNotificacion(cuerpo:string){
     let param = new HttpParams();
     param = param.append('subscriptionJson',cuerpo)

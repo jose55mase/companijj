@@ -10,11 +10,13 @@ import { ProductService } from 'app/service/product.service';
 })
 export class ProductAddComponent implements OnInit {
 
+  imagePath         : string = "assets/company/default_Image.png"
   alertActive       : boolean = false;
   prodroductWindows : boolean = false;
   json = new Object;
 
-  constructor( private fb: FormBuilder, private productService : ProductService  ) {}
+
+  constructor( private fb: FormBuilder, private productService$ : ProductService  ) {}
 
   formControlProduct = this.fb.group({
     inputProductName: ['', [Validators.required]],
@@ -26,7 +28,6 @@ export class ProductAddComponent implements OnInit {
   });
 
   onProductSave(){
-    /*
     var json = {}
     var idesData = Date.now()
     this.alertActive = true
@@ -36,24 +37,31 @@ export class ProductAddComponent implements OnInit {
     },3000)
     //name : this.formControlProduct.value.inputProductName;
     this.json={
-      id : idesData
-      ,name:this.formControlProduct.value.inputProductName
-      ,price: this.formControlProduct.value.inputProductPrice
+      //id : idesData
+      name:this.formControlProduct.value.inputProductName
+      ,price: Number(this.formControlProduct.value.inputProductPrice)
       ,description: this.formControlProduct.value.inputProductDescription
-      ,image:this.formControlProduct.value.inputProductImage ? this.formControlProduct.value.inputProductImage : "https://cdn11.bigcommerce.com/s-0kvv9/images/stencil/1280x1280/products/335343/489756/shredzgoojitzu-inset1__24291.1595979828.jpg?c=2"
+      ,image:this.formControlProduct.value.inputProductImage ? this.formControlProduct.value.inputProductImage : "assets/company/default_Image.png"
       ,category:this.formControlProduct.value.inputProductCategory
     }
+    this.productService$.addNewProducts(this.json).subscribe(
+      (response)=>{
+        console.log("Guardado");
+      },
+      (error)=>{console.log(error)}
+    );
 
-    var data = this.productService.addNewItem(this.json)
-    */
+  }
+
+  loadImage(){
+    this.imagePath = this.formControlProduct.value.inputProductImage ? this.formControlProduct.value.inputProductImage : "assets/company/default_Image.png";
   }
 
   onProductEdit(){
     this.prodroductWindows = false
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 
 
