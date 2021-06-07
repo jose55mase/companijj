@@ -1,10 +1,20 @@
 .row{
   width: 100%;
   margin-top: 2%;
-
 }
 
 .title{
   margin-top: 2%;
   margin-left: 2%;
+}
+
+.card{
+  height: 300px;
+
+}
+
+.overflow-ellipsis{
+  height: 40px;
+  width: 200px;
+  overflow-y: hidden;
 }

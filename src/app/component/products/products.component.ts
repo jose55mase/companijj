@@ -29,9 +29,7 @@ export class ProductsComponent implements OnInit {
     //this.storeService.selectProductMenu(data)
   }
 
-
-  ngOnInit(){
-  }
+  ngOnInit(){  }
 
   loadLogin(){
     if(localStorage.getItem('user') != null){

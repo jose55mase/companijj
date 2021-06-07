@@ -1,15 +1,17 @@
 export interface Product{
   id:number,
-  descriptionstring:string,
+  description:string,
   image:string,
   name:string,
-  price:string
+  price:string,
+  category:string
 }
 
 export class ProductModel{
   id:string;
-  descriptionstring:string;
+  description:string;
   image:string;
   name:string;
   price:string;
+  category:string
 }

@@ -18,6 +18,7 @@ import { Product,Responses } from "./../../models/models"
 export class ProductListComponent implements OnInit {
 
   @Input() productss:string ="Prouctos";
+  showCreateProduct = false;
   public load:boolean = true;
   items:Product[];
   private productMoment:Product;
@@ -32,6 +33,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.loadLogin();
   }
 
   public getAllProducts(){
@@ -51,6 +53,21 @@ export class ProductListComponent implements OnInit {
       queryParams : productMoment
     }
     this.ROUTER.navigate(["/buy"],dataNavigate)
+  }
+
+  loadLogin(){
+    if(localStorage.getItem('user') != null){
+      this.showCreateProduct = true
+    }
+  }
+
+  public findByIdEdit(item:Product){
+    this.productMoment = item;
+    const productMoment = this.productMoment;
+    let dataNavigate : NavigationExtras = {
+      queryParams : productMoment
+    }
+    this.ROUTER.navigate(["/products/add"],dataNavigate)
   }
 /*
 sereniti

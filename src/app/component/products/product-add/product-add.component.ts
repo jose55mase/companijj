@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators,FormControl } from '@angular/forms';
-import { ProductService } from 'app/service/product.service';
-
+import { Component, OnInit }                        from '@angular/core';
+import { FormBuilder, Validators,FormControl }      from '@angular/forms';
+import { ProductService }                           from 'app/service/product.service';
+import {ActivatedRoute, Routes, Router,}            from '@angular/router'; // CLI imports router
+import { Product }                                  from 'app/models/product.model';
 
 @Component({
   selector: 'app-product-add',
@@ -15,8 +16,14 @@ export class ProductAddComponent implements OnInit {
   prodroductWindows : boolean = false;
   json = new Object;
 
+  ngOnInit(): void {}
+  constructor( private fb: FormBuilder, private productService$ : ProductService,
+     private activatedRoute : ActivatedRoute) {
 
-  constructor( private fb: FormBuilder, private productService$ : ProductService  ) {}
+     this.activatedRoute.queryParams.subscribe((param:Product)=>{
+       this.onEditProduct(param);
+     })
+  }
 
   formControlProduct = this.fb.group({
     inputProductName: ['', [Validators.required]],
@@ -24,7 +31,7 @@ export class ProductAddComponent implements OnInit {
     inputProductImage: ['', [Validators.required]],
     inputProductDescription: ['', [Validators.required]],
     inputProductCategory: ['', [Validators.required]],
-    contrasena: ['', []],
+    inputProductId: [null, []],
   });
 
   onProductSave(){
@@ -37,12 +44,15 @@ export class ProductAddComponent implements OnInit {
     },3000)
     //name : this.formControlProduct.value.inputProductName;
     this.json={
-      //id : idesData
-      name:this.formControlProduct.value.inputProductName
+      id : this.formControlProduct.value.inputProductId
+      ,name:this.formControlProduct.value.inputProductName
       ,price: Number(this.formControlProduct.value.inputProductPrice)
       ,description: this.formControlProduct.value.inputProductDescription
       ,image:this.formControlProduct.value.inputProductImage ? this.formControlProduct.value.inputProductImage : "assets/company/default_Image.png"
       ,category:this.formControlProduct.value.inputProductCategory
+    }
+    if(this.json["id"] == undefined){
+      delete this.json["id"];
     }
     this.productService$.addNewProducts(this.json).subscribe(
       (response)=>{
@@ -61,7 +71,15 @@ export class ProductAddComponent implements OnInit {
     this.prodroductWindows = false
   }
 
-  ngOnInit(): void {}
+  onEditProduct(product:Product){
+    this.formControlProduct.controls.inputProductCategory.setValue(product.category);
+    this.formControlProduct.controls.inputProductDescription.setValue(product.description);
+    this.formControlProduct.controls.inputProductImage.setValue(product.image);
+    this.formControlProduct.controls.inputProductName.setValue(product.name);
+    this.formControlProduct.controls.inputProductPrice.setValue(product.price);
+    this.formControlProduct.controls.inputProductId.setValue(product.id);
+    this.imagePath = product.image ? product.image : "assets/company/default_Image.png";
+  }
 
 
 

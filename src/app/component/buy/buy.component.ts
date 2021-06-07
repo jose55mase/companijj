@@ -31,8 +31,7 @@ export class BuyComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   loadPurchase(){
     var idesData = Date.now()
