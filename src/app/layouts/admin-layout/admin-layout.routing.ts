@@ -13,6 +13,7 @@ import { Page404Component } from 'app/component/page404/page404.component';
 import { BuyComponent } from 'app/component/buy/buy.component';
 import { ProductAddComponent } from 'app/component/products/product-add/product-add.component';
 import { OurserviceComponent } from 'app/pages/ourservice/ourservice.component';
+import { SearchComponent } from 'app/pages/search/search.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -30,5 +31,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'buy',            component:BuyComponent },
     { path: 'products/add',   component:ProductAddComponent },
     { path: 'ourservices',     component:OurserviceComponent },
+    { path: 'products/search',     component:SearchComponent },
 
 ];

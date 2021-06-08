@@ -32,6 +32,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { OurserviceComponent }          from './pages/ourservice/ourservice.component';
 
 import {NgxFsModule}                    from 'ngx-fs';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
 
@@ -41,6 +42,7 @@ import {NgxFsModule}                    from 'ngx-fs';
     LoadComponent,
     NotificationComponent,
     OurserviceComponent,
+    SearchComponent,
   ],
   imports: [
     FormsModule,

@@ -18,9 +18,19 @@
       <span class="navbar-toggler-bar navbar-kebab"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
-      <form>
+      <form style="position:relative; z-index:1000;">
         <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
+          <input type="text" value="" class="form-control"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+            (ngModelChange)="onSearchData()"
+            placeholder="Buscar...">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
@@ -28,6 +38,7 @@
           </div>
         </div>
       </form>
+
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link btn-magnify" href="javascript:void(0)">

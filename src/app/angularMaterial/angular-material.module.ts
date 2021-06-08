@@ -20,6 +20,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 @NgModule({
     imports: [
@@ -43,6 +45,7 @@ import {MatDialogModule} from '@angular/material/dialog';
       ,MatBadgeModule
       ,MatExpansionModule
       ,MatDialogModule
+      ,MatAutocompleteModule
     ],
     exports: [
       MatSliderModule
@@ -65,6 +68,7 @@ import {MatDialogModule} from '@angular/material/dialog';
       ,MatBadgeModule
       ,MatExpansionModule
       ,MatDialogModule
+      ,MatAutocompleteModule
     ]
 })
 export class MaterialModule{}

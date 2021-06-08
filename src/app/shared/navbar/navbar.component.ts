@@ -1,6 +1,6 @@
 import { Component, OnInit,  Renderer2,
   ViewChild, ElementRef }                         from '@angular/core';
-import { Router }                                 from '@angular/router';
+import { Router,NavigationExtras }                from '@angular/router';
 import { Location}                                from '@angular/common';
 import { MatBottomSheet }                         from '@angular/material/bottom-sheet';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
@@ -11,6 +11,13 @@ import { ROUTESNABAR }                            from '../../startApp';
 import { User }                                   from 'app/models/user.model';
 import { NotificationComponent }                  from 'app/component/buy/notification/notification.component';
 import { BuyService }                             from 'app/service/buy_service/buy.service';
+import { ProductService }                         from 'app/service/product.service';
+import { Product }                                from 'app/models/product.model';
+import { StoreService }                           from 'app/service/store.service';
+
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
     moduleId: module.id,
@@ -20,6 +27,9 @@ import { BuyService }                             from 'app/service/buy_service/
 
 export class NavbarComponent implements OnInit{
     private listTitles: any[];
+    private listProduct: Product[];
+    private listProductfilte: Product[];
+
     location: Location;
     public user = new User();
     private nativeElement: Node;
@@ -38,7 +48,9 @@ export class NavbarComponent implements OnInit{
 
     constructor(location:Location, private renderer : Renderer2, private element : ElementRef,
       private router: Router, private _bottomSheet: MatBottomSheet,private loginService$ : LoginService,
-      public dialog: MatDialog, private buyService$ :BuyService) {
+      public dialog: MatDialog, private buyService$ :BuyService, private productService$: ProductService,
+      private ROUTER : Router, private storeService$: StoreService
+      ) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
@@ -51,8 +63,28 @@ export class NavbarComponent implements OnInit{
         height: '400px',
         data: {state:true }
       });
-      
+
     }
+
+    myControl = new FormControl();
+    options: string[] = [];
+    filteredOptions: Observable<string[]>;
+
+    private _filter(value: string): string[] {
+      const filterValue = value.toLowerCase();
+      return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    }
+
+    onSearchData(){
+      this.listProductfilte = this.listProduct.filter((data)=>data.name.toLowerCase().indexOf(this.myControl.value) === 0)
+      if(this.listProductfilte.length === 0){
+        this.listProductfilte = this.listProduct.filter((data)=> data.name.toLowerCase() == this.myControl.value.toLowerCase());        
+      }
+      this.storeService$.searchProduct.emit(this.listProductfilte);
+      this.ROUTER.navigate(["/products/search"])
+    }
+
+
 
 
     public onClickShowLoginView(){
@@ -61,22 +93,38 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
-        this.getUserLogin()
-        this.listTitles = ROUTESNABAR.filter(listTitle => listTitle);
-        var navbar : HTMLElement = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-        this.router.events.subscribe((event) => {
-          this.sidebarClose();
-       });
-       this.buyService$.alertPurchase.subscribe(v=>{this.alertasAyudasConteo = v.length})
-       if(localStorage.getItem("user")){
-         this.alertasAyudasState = true;
-       }
+
+      this.productService$.getAllProducts().subscribe(
+        (response)=>{
+            response.data.map((data:Product)=>{
+              this.options.push(data.name);
+            })
+            this.listProduct = response.data
+        }
+      )
+
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+
+      this.getUserLogin()
+      this.listTitles = ROUTESNABAR.filter(listTitle => listTitle);
+      var navbar : HTMLElement = this.element.nativeElement;
+      this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+      this.router.events.subscribe((event) => {
+        this.sidebarClose();
+     });
+     this.buyService$.alertPurchase.subscribe(v=>{this.alertasAyudasConteo = v.length})
+     if(localStorage.getItem("user")){
+       this.alertasAyudasState = true;
+     }
     }
 
     closeLogin(){
       localStorage.clear()
     }
+
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
