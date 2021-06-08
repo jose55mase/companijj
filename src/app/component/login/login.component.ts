@@ -26,10 +26,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.modules = ROUTESNABAR
-    console.log("LOGING --->");
-    console.log(this.loginService$.statusLogin);
     this.loginService$.statusLogin = true;
-    console.log(this.loginService$.statusLogin);
 
   }
 
@@ -58,7 +55,9 @@ export class LoginComponent implements OnInit {
             icon:'nc-pin-3',
             class: ''
           }
+        var data = { path: '/category/add',  title: 'Categorias',        icon:'nc-tile-56',    class: ''  };
         this.modules.push(userRol)
+        this.modules.push(data);
         this.loginService$.components.emit(this.modules)
         this.loginService$.loginData.emit(this.modules)
       }else{
@@ -75,7 +74,9 @@ export class LoginComponent implements OnInit {
             icon:'nc-pin-3',
             class: ''
           }
+        var data = { path: '/category/add',  title: 'Categorias',        icon:'nc-tile-56',    class: ''  };
         this.modules.push(userRol)
+        this.modules.push(data);
         this.loginService$.components.emit(this.modules);
         this.loginService$.loginData.emit(this.modules);
       }

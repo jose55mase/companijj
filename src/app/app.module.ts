@@ -33,6 +33,7 @@ import { OurserviceComponent }          from './pages/ourservice/ourservice.comp
 
 import {NgxFsModule}                    from 'ngx-fs';
 import { SearchComponent } from './pages/search/search.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 @NgModule({
 
@@ -43,6 +44,7 @@ import { SearchComponent } from './pages/search/search.component';
     NotificationComponent,
     OurserviceComponent,
     SearchComponent,
+    CategoryComponent,
   ],
   imports: [
     FormsModule,

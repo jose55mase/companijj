@@ -3,6 +3,8 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 import { LoginService } from 'app/service/login_service/login.service';
 import { StoreService } from './../../service/store.service';
 import { Routes, Router, NavigationExtras } from '@angular/router';
+import { CategoryService } from 'app/service/category_service/category.service';
+import { Responses } from 'app/models/response.model'
 
 @Component({
   selector: 'app-products',
@@ -11,21 +13,17 @@ import { Routes, Router, NavigationExtras } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
+  //Variables
   showCreateProduct = false;
-  //Productos
-  products = {
-    electronica: "Electronica",
-    hobby_rc: "RC Hobbys",
-    //ropa: "ropa"
-  }
+  listProduct = [];
 
   constructor(private storeService: StoreService,private ROUTER : Router
-    ,private loginService$:LoginService) {
+    ,private loginService$:LoginService, private categoryService$ : CategoryService) {
     this.loadLogin();
+    this.loadCategoryData();
   }
 
   public selectProductMenu(data:string){
-    console.log("data");
     //this.storeService.selectProductMenu(data)
   }
 
@@ -35,6 +33,16 @@ export class ProductsComponent implements OnInit {
     if(localStorage.getItem('user') != null){
       this.showCreateProduct = true
     }
+  }
+
+  loadCategoryData(){
+    this.categoryService$.getAllCategorys().subscribe(
+      (responses:Responses)=>{
+        console.log("Response---------> //////////////");
+        console.log(responses.data)
+        this.listProduct = responses.data;
+      }
+    )
   }
 
 

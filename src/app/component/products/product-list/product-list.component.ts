@@ -69,36 +69,5 @@ export class ProductListComponent implements OnInit {
     }
     this.ROUTER.navigate(["/products/add"],dataNavigate)
   }
-/*
-sereniti
-cucumber
-debox
-  public getCallectionProduct(){
-    this.productService.retornaItems().subscribe(
-      (items:any)=>{
-        //console.log("--------------> ",this.productss)
-        this.items = items.filter((data)=>{return data.category == this.productss })
-      },
-      (error)=>{
-        //this.items=items
-        console.error(error)
-      }
-    )
-  }
-
-  public findByIdAndBuy(item){
-    console.log(item.id)
-    let dataNavigate : NavigationExtras = {
-      queryParams:{
-        "id" : item.id,
-        "description":item.description,
-        "image":item.image,
-        "name":item.name,
-        "price":item.price
-      }
-    }
-    this.ROUTER.navigate(["/buy"],dataNavigate)
-    //this.productService.findById()
-  }*/
 
 }

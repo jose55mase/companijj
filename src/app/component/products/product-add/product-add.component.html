@@ -35,10 +35,8 @@
     <mat-form-field appearance="fill">
       <mat-label>Categoria</mat-label>
       <select  matNativeControl required formControlName="inputProductCategory">
-        <option selected></option>
-        <option value="Electronica">Electronica</option>
-        <option value="RC Hobbys">RC Hobbys</option>
-        <option value="Sevicios">Sevicios</option>
+        <option selected *ngFor="let item of listCategory" [value]="item.name">{{item.name}}</option>
+        
       </select>
     </mat-form-field>
 

@@ -1,0 +1,27 @@
+<div class="rows">
+  <form class="example-form container" [formGroup]="formControlCategory">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre categoria</mat-label>
+      <input matInput placeholder="Nombre Producto" autocomplete="off" formControlName="inputCatgoryName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descripcion</mat-label>
+      <textarea formControlName="inputCatgoryDescription" rows="12" matInput placeholder="..."></textarea>
+    </mat-form-field>
+
+    <div class="example-button-container">
+      <button
+        mat-fab
+        disabled aria-label=""
+        color="primary"
+        (click)="onCategorySave()"
+        [disabled]="!formControlCategory.valid && !formControlCategory.valid"
+        >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </form>
+
+</div>

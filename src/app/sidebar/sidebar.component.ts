@@ -22,9 +22,9 @@ export const ROUTES: RouteInfo[] = [
       class: ''
     },
     { path: '/maps',          title: 'Mapa',              icon:'nc-pin-3',      class: '' },
-//    { path: '/products/add',  title: 'Productos',         icon:'nc-pin-3',      class: '' },
+//  { path: '/products/add',  title: 'Productos',         icon:'nc-pin-3',      class: '' },
 
-//    { path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
+//  { path: '/icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
     { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
     { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
     { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '' },
@@ -46,15 +46,13 @@ export class SidebarComponent implements OnInit {
       this.loadComponets();
     }
     ngOnInit() {
-
-        //this.menuItems = ROUTES.filter(menuItem => menuItem);
-        this.loginService$.components.emit(ROUTESNABAR)
-        this.loginService$.components.subscribe(
-          (responses:any) => {
-            this.menuItems = responses
-
-          }
-        )
+      //this.menuItems = ROUTES.filter(menuItem => menuItem);
+      this.loginService$.components.emit(ROUTESNABAR)
+      this.loginService$.components.subscribe(
+        (responses:any) => {
+          this.menuItems = responses
+        }
+      )
     }
 
     loadComponets(){

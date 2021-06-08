@@ -14,23 +14,25 @@ import { BuyComponent } from 'app/component/buy/buy.component';
 import { ProductAddComponent } from 'app/component/products/product-add/product-add.component';
 import { OurserviceComponent } from 'app/pages/ourservice/ourservice.component';
 import { SearchComponent } from 'app/pages/search/search.component';
+import { CategoryComponent } from 'app/pages/category/category.component';
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user',           component: UserComponent },
-    { path: 'table',          component: TableComponent },
-    { path: 'typography',     component: TypographyComponent },
-    { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'dashboard',        component: DashboardComponent },
+    { path: 'user',             component: UserComponent },
+    { path: 'table',            component: TableComponent },
+    { path: 'typography',       component: TypographyComponent },
+    { path: 'icons',            component: IconsComponent },
+    { path: 'maps',             component: MapsComponent },
+    { path: 'notifications',    component: NotificationsComponent },
+    { path: 'upgrade',          component: UpgradeComponent },
 
-    { path: 'products',       component: ProductsComponent},
-    { path: 'maintenance',    component:Page404Component},
-    { path: 'buy',            component:BuyComponent },
-    { path: 'products/add',   component:ProductAddComponent },
-    { path: 'ourservices',     component:OurserviceComponent },
-    { path: 'products/search',     component:SearchComponent },
+    { path: 'products',         component: ProductsComponent},
+    { path: 'maintenance',      component:Page404Component},
+    { path: 'buy',              component:BuyComponent },
+    { path: 'products/add',     component:ProductAddComponent },
+    { path: 'ourservices',      component:OurserviceComponent },
+    { path: 'products/search',  component:SearchComponent },
+    { path: 'category/add',     component:CategoryComponent },
 
 ];

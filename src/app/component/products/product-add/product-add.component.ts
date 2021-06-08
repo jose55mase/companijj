@@ -3,6 +3,8 @@ import { FormBuilder, Validators,FormControl }      from '@angular/forms';
 import { ProductService }                           from 'app/service/product.service';
 import {ActivatedRoute, Routes, Router,}            from '@angular/router'; // CLI imports router
 import { Product }                                  from 'app/models/product.model';
+import { CategoryService }                          from 'app/service/category_service/category.service';
+import { CategoryModel }                            from 'app/models/category.model';
 
 @Component({
   selector: 'app-product-add',
@@ -15,11 +17,12 @@ export class ProductAddComponent implements OnInit {
   alertActive       : boolean = false;
   prodroductWindows : boolean = false;
   json = new Object;
+  listCategory      : CategoryModel[];
 
   ngOnInit(): void {}
   constructor( private fb: FormBuilder, private productService$ : ProductService,
-     private activatedRoute : ActivatedRoute) {
-
+     private activatedRoute : ActivatedRoute, private categoryService$:CategoryService) {
+      this.loadCategorysData();   
      this.activatedRoute.queryParams.subscribe((param:Product)=>{
        this.onEditProduct(param);
      })
@@ -81,6 +84,13 @@ export class ProductAddComponent implements OnInit {
     this.imagePath = product.image ? product.image : "assets/company/default_Image.png";
   }
 
+  loadCategorysData(){
+    this.categoryService$.getAllCategorys().subscribe(
+      (response)=>{
+        this.listCategory = response.data
+      }
+    )
+  }
 
 
 }
