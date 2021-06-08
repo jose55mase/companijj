@@ -6,8 +6,8 @@
 export const environment = {
   production: true,
 
-  //urlProducto_JAVA : "https://sodaci.herokuapp.com",
-  urlProducto_JAVA : "http://localhost:8181",
+  urlProducto_JAVA : "https://sodaci.herokuapp.com",
+  //urlProducto_JAVA : "http://localhost:8181",
 
   firebase : {
     apiKey: "AIzaSyD3NYT_tyujv0KpYMqUR-7VNGHDBv1ZAfM",
