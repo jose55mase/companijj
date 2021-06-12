@@ -1,27 +1,29 @@
-<div class="row " >
-  <div class="col-lg-3 col-md-6 col-sm-6 " *ngFor="let item of items" >
-    <div class="card card-stats">
-      <div class="card-body ">
-        <div class="row">
-          <div class="col-5 col-md-8">
-              <img width="200" height="110" src={{item.image}} alt="">
-          </div>
-          <div class="col-10 col-md-10">
-            <div class="numbers">
-              <p class="card-category overflow-ellipsis">{{item.name}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm" *ngFor="let item of items">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-8">
+                <img width="200" height="110" src={{item.image}} alt="">
             </div>
-            <p>{{item.price | currency}}<p>
+            <div class="col-10 col-md-10">
+              <div class="numbers">
+                <p class="card-category overflow-ellipsis">{{item.name}}</p>
+              </div>
+              <p>{{item.price | currency}}<p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card-footer ">
-        <hr>
-        <button color="warn" mat-icon-button (click)="findByIdAndBuy(item)" matTooltip="Comprar poducto">
-          <mat-icon>shopping_cart</mat-icon>
-        </button>
-        <button *ngIf="showCreateProduct" color="primary" mat-icon-button (click)="findByIdEdit(item)"  matTooltip="Editar poducto">
-          <mat-icon>settings</mat-icon>
-        </button>
+        <div class="card-footer ">
+          <hr>
+          <button color="warn" mat-icon-button (click)="findByIdAndBuy(item)" matTooltip="Comprar poducto">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+          <button *ngIf="showCreateProduct" color="primary" mat-icon-button (click)="findByIdEdit(item)"  matTooltip="Editar poducto">
+            <mat-icon>settings</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>
