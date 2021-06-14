@@ -1,10 +1,11 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, ViewChild,ElementRef } from '@angular/core';
 import Chart from 'chart.js';
 import { Client } from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
 import { SwPush  } from '@angular/service-worker';
 import { ProductService } from './../../service/product.service';
 import  Push from 'push.js'
+
 
 import {MatMenuPanel} from '@angular/material/menu';
 
@@ -26,6 +27,7 @@ export class Mensaje {
 })
 export class DashboardComponent implements OnInit{
 
+  @ViewChild('someInput') someInput: ElementRef;
   respuestaNotificacion:any
   estilosTest = "none";
   public kys = {
@@ -49,7 +51,8 @@ export class DashboardComponent implements OnInit{
     private swPush: SwPush
     , private productService$:ProductService
     ,private webPushNotificationsService: WebPushNotificationsService){
-  //  this.creardata();
+    //  this.creardata();
+    
   }
 
   creardata(){

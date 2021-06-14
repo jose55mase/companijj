@@ -35,6 +35,7 @@ import {NgxFsModule}                    from 'ngx-fs';
 import { SearchComponent } from './pages/search/search.component';
 import { CategoryComponent } from './pages/category/category.component';
 
+
 @NgModule({
 
   declarations: [
