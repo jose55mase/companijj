@@ -10,6 +10,7 @@
         </button>
       </div>
       <a class="navbar-brand" href="javascript:void(0)">{{getTitle()}}</a>
+      <img src="assets/company/nav.svg" height="30" alt="...">
     </div>
     <button class="navbar-toggler" type="button" (click)="collapse()"
       [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
@@ -75,9 +76,9 @@
             </p>
           </a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
-            <a ngbDropdownItem routerLink="#" (click)="onClickShowLoginView()" ><i class="nc-icon nc-badge"></i> Iniciar sesion</a>
+            <a ngbDropdownItem routerLink="#" (click)="onClickShowLoginView()" ><i class="nc-icon nc-badge"></i> Iniciar Sesion</a>
             <a ngbDropdownItem routerLink="/maintenance"><i class="nc-icon nc-lock-circle-open"></i> Registrarse</a>
-            <a ngbDropdownItem routerLink="#" (click)="closeLogin()" ><i class="nc-icon nc-lock-circle-open"></i> Cerrar sesion</a>
+            <a ngbDropdownItem routerLink="#" (click)="closeLogin()" ><i class="nc-icon nc-lock-circle-open"></i> Cerrar Sesion</a>
           </div>
         </li>
         <li class="nav-item">
