@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit {
             class: ''
           }
         var data = { path: '/category/add',  title: 'Categorias',        icon:'nc-tile-56',    class: ''  };
+        var chat = { path: '/chat/response/manager',          title: 'Chat',       icon:'nc-chat-33', class: '' };
+        this.modules.push(chat)
         this.modules.push(userRol)
         this.modules.push(data);
         this.loginService$.components.emit(this.modules)
@@ -75,6 +77,8 @@ export class LoginComponent implements OnInit {
             class: ''
           }
         var data = { path: '/category/add',  title: 'Categorias',        icon:'nc-tile-56',    class: ''  };
+        var chat = { path: '/chat/response/manager',          title: 'Chat',       icon:'nc-chat-33', class: '' };
+        this.modules.push(chat)
         this.modules.push(userRol)
         this.modules.push(data);
         this.loginService$.components.emit(this.modules);

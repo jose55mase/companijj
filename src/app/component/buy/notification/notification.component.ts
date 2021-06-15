@@ -27,6 +27,7 @@ export class NotificationComponent implements OnInit {
 
 
   ngOnInit(): void {
+    /*
     this.showState =JSON.parse(localStorage.getItem("user"))?true:false
     console.log("[Inicimos Notificaciones]",)
     this.client = new Client();
@@ -40,7 +41,7 @@ export class NotificationComponent implements OnInit {
 
     }
     this.onConect();
-
+    */
 
   }
 

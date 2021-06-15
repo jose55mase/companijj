@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm" *ngFor="let item of userChatList">
+      <div class="card card-stats">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-10 col-md-10">
+              <div class="numbers">
+                <p class="card-category overflow-ellipsis">{{item}}</p>
+              </div>
+              <div #scrollChat [scrollTop]="scrollChat.scrollHeight" class="card-body" style="; overflow-y: scroll; height: 220px; background-color: #fff;"  >
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item list-group-item-light"  style="width: 17.5rem;" *ngFor="let itemChat of getItems(item)">
+                    <div class="d-flex flex-row p-3"  style=" background-color: #fff;">
+                      <div class="col-sm-3">
+                        <img [src]="itemChat.tipo" width="30" height="30">
+                      </div>
+                      <div class="chat ml-2 p-3 small">
+                        {{itemChat.texto}}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <li class="adjustments-line text-center">
+        <div class="form-group px-3"> <textarea class="form-control" [(ngModel)]="mensaje.texto" placeholder="Type your message"></textarea> </div>
+      </li>
+      <br>
+      <button mat-icon-button aria-label="" (click)="sendMessage(item)" color="primary">
+        <mat-icon>schedule_send</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="" (click)="deleteItems(item)" color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

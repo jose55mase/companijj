@@ -2,29 +2,43 @@
     <div class="show-dropdown" ngbDropdown>
         <a href="javascript:void(0)" ngbDropdownToggle id="dropdownConfig">
           <!--i class="fa fa-cog fa-2x"> </i-->
-
           <i class="fa fa-commenting-o fa-3x" aria-hidden="true" style="color:#ffffff"> </i>
         </a>
-        <!--ul class="" ngbDropdownMenu aria-labelledby="dropdownConfig">
-            <li class="header-title">Sidebar Background</li>
+        <ul class="" ngbDropdownMenu aria-labelledby="dropdownConfig">
+            <li class="header-title" >Chat SODACI</li>
+            <li class="header-title"><button type="button" (click)="sendMessage()" style="background-color:#FF7401" class="btn btn-sm">Enviar</button></li>
             <li class="adjustments-line text-center">
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <span class="badge filter badge-light active" [ngClass]="{'active':sidebarColor==='white'}" (click)="changeSidebarColor('white')"></span>
-                    <span class="badge filter badge-dark" [ngClass]="{'active':sidebarColor==='black'}" (click)="changeSidebarColor('black')"></span>
-                </a>
+              <div class="form-group px-3"> <textarea class="form-control" [(ngModel)]="mensaje.texto" placeholder="Type your message"></textarea> </div>
             </li>
 
-	          <li class="header-title">Sidebar Active Color</li>
             <li class="adjustments-line text-center">
                 <a href="javascript:void(0)" class="switch-trigger active-color">
-                    <span class="badge filter badge-primary" [ngClass]="{'active':sidebarActiveColor==='primary'}" (click)="changeSidebarActiveColor('primary')"></span>
-                    <span class="badge filter badge-info" [ngClass]="{'active':sidebarActiveColor==='info'}" (click)="changeSidebarActiveColor('info')"></span>
-                    <span class="badge filter badge-success" [ngClass]="{'active':sidebarActiveColor==='success'}" (click)="changeSidebarActiveColor('success')"></span>
-                    <span class="badge filter badge-warning" [ngClass]="{'active':sidebarActiveColor==='warning'}" (click)="changeSidebarActiveColor('warning')"></span>
-                    <span class="badge filter badge-danger active" [ngClass]="{'active':sidebarActiveColor==='danger'}" (click)="changeSidebarActiveColor('danger')"></span>
+                  <div class="container d-flex justify-content-center">
+                    <div *ngIf="listMenssageState" class="card mt-5">
+                      <div #scrollChat [scrollTop]="scrollChat.scrollHeight" class="card-body" style="width: 20rem; overflow-y: scroll; height: 360px; background-color: #fff;"  >
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item list-group-item-light"  style="width: 17.5rem;">
+                            <div class=""  *ngFor="let item of mensajes">
+                              <div class="d-flex flex-row p-3"  style=" background-color: #fff;">
+                                  <div class="col-sm-3">
+                                    <img [src]="item.tipo" width="10" height="10">
+                                  </div>
+                                  <div class="chat ml-2 p-3 small">
+                                  {{item.texto}}
+                                  </div>
+                              </div>
+                              <hr style=" background-color: #FD6E01;">
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
                 </a>
             </li>
 
-        </ul-->
+        </ul>
+
     </div>
 </div>
